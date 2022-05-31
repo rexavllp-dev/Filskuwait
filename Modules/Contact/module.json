@@ -1,0 +1,6 @@
+{
+    "name": "Contact",
+    "alias": "contact",
+    "description": "The FilsKuwait Contact Module.",
+    "priority": 100
+}
