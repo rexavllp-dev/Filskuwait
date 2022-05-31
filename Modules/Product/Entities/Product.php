@@ -60,6 +60,8 @@ class Product extends Model
         'is_active',
         'new_from',
         'new_to',
+        'is_affiliate',
+        'affiliate_link',
     ];
 
     /**
@@ -171,6 +173,8 @@ class Product extends Model
                 'products.qty',
                 'products.new_from',
                 'products.new_to',
+                'products.is_affiliate',
+                'products.affiliate_link'
             ]);
     }
 

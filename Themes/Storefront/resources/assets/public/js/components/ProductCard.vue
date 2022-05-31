@@ -53,25 +53,45 @@
         <div class="product-card-bottom">
             <div class="product-price" v-html="product.formatted_price"></div>
 
-            <button
-                v-if="hasNoOption || product.is_out_of_stock"
-                class="btn btn-primary btn-add-to-cart"
-                :class="{ 'btn-loading': addingToCart }"
-                :disabled="product.is_out_of_stock"
-                @click="addToCart"
-            >
-                <i class="las la-cart-arrow-down"></i>
-                {{ $trans('storefront::product_card.add_to_cart') }}
-            </button>
+            <span v-if="product.is_affiliate == 0">
+                
+           
+                        <button
+                            v-if="hasNoOption || product.is_out_of_stock"
+                            class="btn btn-primary btn-add-to-cart"
+                            :class="{ 'btn-loading': addingToCart }"
+                            :disabled="product.is_out_of_stock"
+                            @click="addToCart"
+                        >
+                            <i class="las la-cart-arrow-down"></i>
+                            {{ $trans('storefront::product_card.add_to_cart') }}
+                        </button>
 
-            <a
-                v-else
-                :href="productUrl"
-                class="btn btn-primary btn-add-to-cart"
-            >
-                <i class="las la-eye"></i>
-                {{ $trans('storefront::product_card.view_options') }}
-            </a>
+                        <a
+                            v-else
+                            :href="productUrl"
+                            class="btn btn-primary btn-add-to-cart"
+                        >
+                            <i class="las la-eye"></i>
+                            {{ $trans('storefront::product_card.view_options') }}
+                        </a>
+
+             </span>
+
+             <span v-else>
+
+                     <a target="new" :href="product.affiliate_link" 
+                                          
+                                            class="btn btn-primary fn-white btn-add-to-cart"
+                                            
+                                        >
+                                            <i class="las la-cart-arrow-down"></i>
+                                            PURCHASE NOW
+                                        </a>
+
+             </span>
+
+
         </div>
     </div>
 </template>

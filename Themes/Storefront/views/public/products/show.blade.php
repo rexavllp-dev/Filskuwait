@@ -107,6 +107,7 @@
                                     {!! $product->formatted_price !!}
                                 </div>
 
+                                @if($product->is_affiliate == 0)
                                 <form
                                     @submit.prevent="addToCart"
                                     @input="errors.clear($event.target.name)"
@@ -154,6 +155,20 @@
                                         </button>
                                     </div>
                                 </form>
+                                @else
+
+                                    <a target="new" href="{{ $product->affiliate_link }}" 
+                                          
+                                            class="btn btn-primary fn-white"
+                                            
+                                        >
+                                            <i class="las la-cart-arrow-down"></i>
+                                            Purchase Now
+                                        </a>
+
+                                @endif
+
+
                             </div>
 
                             <div class="details-info-bottom">
